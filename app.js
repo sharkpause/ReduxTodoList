@@ -42,6 +42,13 @@ function editTask(newTask, index) {
 	}
 }
 
+function displayTasks(store) {
+	const tasks = store.getState();
+	for(let i = 0; i < tasks.length; ++i) {
+		console.log(`${i}: ${tasks[i]}`);
+	}
+}
+
 const store = Redux.createStore(taskReducer);
 
 store.dispatch(addTask('get motivated'));
@@ -49,8 +56,4 @@ store.dispatch(addTask('think of a multimillion dollar business idea'));
 store.dispatch(addTask('start researching about the idea'));
 store.dispatch(addTask('get unmotivated'));
 
-console.log(store.getState());
-
-store.dispatch(editTask('start working on idea', 3));
-
-console.log(store.getState());
+displayTasks(store);
