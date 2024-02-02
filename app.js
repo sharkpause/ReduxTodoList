@@ -13,7 +13,7 @@ function taskReducer(state = [], action) {
 						.concat(state.slice(action.index + 1, state.length));
 		case EDIT_TASK:
 			const newState = state.slice(0);
-			newState[action.index] = action.newTask; // Fix this
+			newState[action.index] = action.newTask;
 			return newState;
 		default:
 			return state;
@@ -51,6 +51,6 @@ store.dispatch(addTask('get unmotivated'));
 
 console.log(store.getState());
 
-store.dispatch(editTask(3, 'start working on idea'));
+store.dispatch(editTask('start working on idea', 3));
 
 console.log(store.getState());
